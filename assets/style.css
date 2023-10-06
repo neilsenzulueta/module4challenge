@@ -1,0 +1,14 @@
+html,
+body,
+.header {
+    height: 100px;
+    margin: 0;
+    padding: 100px;
+    display: block;
+    text-align: center;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: mintcream;
+}
