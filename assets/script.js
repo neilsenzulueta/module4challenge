@@ -1,5 +1,10 @@
+var startBtn = document.querySelector("start")
 
+startBtn.addEventListener("Click", startQuiz)
 
+function startQuiz() {
+    
+}
 
 
 
