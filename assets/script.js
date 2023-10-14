@@ -1,9 +1,25 @@
 var startBtn = document.querySelector("start")
+var highscoreBtn =document.querySelector("highscores")
 
 startBtn.addEventListener("Click", startQuiz)
 
 function startQuiz() {
-    
+
+}
+
+var timeEl = document.querySelector(".time")
+var mainEl = document.getElementById('main')
+var secondsLeft = 60;
+
+function setTime() {
+    var timerinterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + "";
+
+        if(seconds)
+
+    }
+
 }
 
 

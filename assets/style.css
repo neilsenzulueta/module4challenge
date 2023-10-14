@@ -1,15 +1,15 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
     margin-top: 200px;
-    background-color: rgb(133, 140, 136);
+    background-color: rgb(194, 198, 195);
 }
 
 header {
-    max-width: 500px;
+    width: 50%;
+    text-align: center;
     margin: 0 auto;
     padding: 100px;
-    background-color: white;
+    background-color: rgb(245, 241, 241);
     border-radius: 20px;
     box-shadow: 0 0 20px black(0, 0,0, 0.2);
 }
@@ -23,10 +23,21 @@ button {
     cursor: pointer;
     border-radius: 10px;
 }
-
+.highscores {
+    position:absolute;top: 0px;left: 0px;
+    display: flex;
+    margin: 10px;
+}
 button:hover {
     background-color: darkcyan ;
 }
 
+.timer h3 {
+    position:absolute;top: 0px;right: 30px;
+    display: flex;
+    margin: 10px;
+}
 
+
+    
 

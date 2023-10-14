@@ -12,14 +12,39 @@
 <body>
     <header id="header">
         <h1>Coding Quiz Challenge</h1>
-        <p>Answer the following code-related questions within the time limit. Be aware!!! incorrect answers will penalize your scoretime by ten seconds </p>
-    <div class="card">
-        <button id="start" class="btn">Start Quiz</button>
-    </div>
+            <p>Answer the following code-related questions within the time limit. Be aware!!! incorrect answers will penalize your scoretime by ten seconds </p>
+
+            <button id="start-button" class="btn">Start Quiz</button>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="card-timer">
+            <div class="timer-text">
+            <div class="timer-count"></div>
+                <h3>Time: <span id="timer">60</span>seconds</h3>
+             </div>
+        </section>
+        <section class="card-highscores">
+            <div class="highscores">
+                <button class="highscores-button">View Highscores</button>
+            </div>
+        <section class="card-quiz">
+            <div class="quiz-question">
+                <p id="question"></p>
+            </div>
+                <ul id="choices"></ul>
+        </section>
+        <section class="card-game-over">
+            <H2>Game Over</H2>
+            
+        </section>
+    </main>
         
     
 
-    </header>
+    
 
     
     <script src="./assets/script.js"></script>
