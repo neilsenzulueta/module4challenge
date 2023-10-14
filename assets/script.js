@@ -11,18 +11,18 @@ var questions = [
     },
     {
         question: "Arrays in Javascript can be used to store _____.",
-        choices: ["1.numbers and strings", "2.other arrays", "3.booleans", "4.all of the above"],
-        correctAnswer: "4.all of the above",
+        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        correctAnswer: "all of the above",
     },
     {
         question: "String values must be enclosed within ____ when being assigned to variables.",
-        choices: ["1.commas", "2.curly brackets", "3.quotes", "4.parentheses"],
-        correctAnswer: "1.commas",
+        choices: ["commas", "curly brackets", "quotes", "parentheses"],
+        correctAnswer: "commas",
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices: ["1.javascript", "2.terminal/bash", "3.for loops", "4.console log"],
-        correctAnswer: "4.console log",
+        choices: ["javascript", "terminal/bash", "for loops", "console log"],
+        correctAnswer: "console log",
     }
 ];
 var currentQuestionIndex = 0;
