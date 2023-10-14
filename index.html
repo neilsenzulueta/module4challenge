@@ -1,59 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
     <title>Timed coding quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
-    
 </head>
 <body>
-    <header id="header">
+    <div id="start-container">
         <h1>Coding Quiz Challenge</h1>
             <p>Answer the following code-related questions within the time limit. Be aware!!! incorrect answers will penalize your scoretime by ten seconds </p>
 
             <button id="start-button" class="btn">Start Quiz</button>
         </div>
-    </header>
-
-    <main>
-        <section>
-            <div class="card-timer">
-            <div class="timer-text">
-            <div class="timer-count"></div>
-                <h3>Time: <span id="timer">60</span>seconds</h3>
-             </div>
-        </section>
-        <section class="card-highscores">
-            <div class="highscores">
-                <button class="highscores-button">View Highscores</button>
-            </div>
-        <section id="card-quiz">
-            <div id="quiz-question">
+        <div id="quiz-container">
+            <div id="question-container">
                 <p id="question"></p>
             </div>
                 <ul id="choices"></ul>
-        </section>
-        <section class="card-game-over">
-            <H2>Game Over</H2>
-
-        </section>
-    </main>
+            <div id="timer-container">
+                    Time: <span id="timer">60</span> seconds
+             </div>
+        </div>
+        <div id="game-over-container">
+            <h2>Game Over</h2>
+            <p>Your score: <span id="score">0</span></p>
+            <label for="initials"> Enter your initials:</label>
+            <button id="save-score">Save Score</button>
+        </div>
+        <!--<div id="highscores-container">
+            <div id="highscores">
+                <button class="highscores-button">View Highscores</button>
+            </div>-->
         
-    
-
-    
-
-    
-    <script src="./assets/script.js"></script>
+     <script src="./assets/script.js"></script>
 </body>
-
-
-
-
-
-
-
 </html>

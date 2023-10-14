@@ -4,7 +4,8 @@ body {
     background-color: rgb(194, 198, 195);
 }
 
-header {
+#start-container {
+    display: flexbox;
     width: 50%;
     text-align: center;
     margin: 0 auto;
@@ -12,6 +13,36 @@ header {
     background-color: rgb(245, 241, 241);
     border-radius: 20px;
     box-shadow: 0 0 20px black(0, 0,0, 0.2);
+}
+#quiz-container {
+    display: none;
+  }
+  
+  #question-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+  }
+  
+  #choices {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #choices li {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  #game-over-container {
+    display: none;
+    padding: 20px;
+  }
+  
+/*
+card quiz {
+    display: none;
 }
 
 button {

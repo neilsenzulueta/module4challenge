@@ -1,13 +1,13 @@
 var questions = [
     {
         question: "Commonly used data types DO NOT Include:",
-        choices: ["1.strings", "2.booleans", "3.alerts", "4.numbers"],
-        correctAnswer: "3.alerts",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        correctAnswer: "alerts",
     },
     {
         question: "The condition in an if/else statement is enclosed with ____.",
-        choices: ["1.quotes", "2.curly brackets", "3.parentheses", "4.square brackets"],
-        correctAnswer: "3.parentheses",
+        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        correctAnswer: "parentheses",
     },
     {
         question: "Arrays in Javascript can be used to store _____.",
@@ -22,34 +22,40 @@ var questions = [
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices: ["1.javascript", "2.terminal/bash", "3.for loops", "4.console log"],
-        correctAnswer: "4.console log"
+        correctAnswer: "4.console log",
     }
 ];
 var currentQuestionIndex = 0;
 var timeLeft = 60;
 var score = 0;
-var timerinterval;
+var timerInterval;
 
-var startBtn = document.getElementById("start-button");
-var cardQuiz = document.getElementById("card-quiz");
+var startButton = document.getElementById("start-button");
+var quizContainer = document.getElementById("quiz-container");
 var questionElement = document.getElementById("question");
 var choicesElement = document.getElementById("choices");
 var timerElement = document.getElementById("timer");
+var gameOverContainer = document.getElementById("game-over-container");
+var scoreElement = document.getElementById("score");
+var initialsInput = document.getElementById("initials");
+var saveScoreButton = document.getElementById("save-score");
 
-var startBtn = document.querySelector("start")
-var highscoreBtn =document.querySelector("highscores")
+//var startBtn = document.querySelector("start")
+//var highscoreBtn =document.querySelector("highscores")
 
-startBtn.addEventListener("Click", startQuiz)
+startButton.addEventListener("click", startQuiz)
+saveScoreButton.addEventListener("click", saveScore)
+//highscoreBtn.addEventListener("Click", highscores)
 
 function startQuiz() {
-    document.getElementById("header").style.display ="none";
-    cardQuiz.style.display = "block";
+    document.getElementById("start-container").style.display = "none";
+    quizContainer.style.display = "block";
     nextQuestion();
-    timerinterval = setInterval(updateTimer, 1000);
+    timerInterval = setInterval(updateTimer, 1000);
 
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
-        var currentQuestion = questions[currentQuestionIndex];
+        const currentQuestion = questions[currentQuestionIndex];
         questionElement.textContent = currentQuestion.question;
         choicesElement.innerHTML ="";
 
@@ -57,45 +63,42 @@ function nextQuestion() {
             var choiceItem = document.createElement("li");
             choiceItem.textContent = choice;
             choiceItem.addEventListener("click", () => checkAnswer(choice, currentQuestion.correctAnswer));
-            choicesElement.append(choiceItem);
+            choicesElement.appendChild(choiceItem);
         });
-    }   
-    else {
+}   else {
     endQuiz();
+}
+}
+
+function checkAnswer(userAnswer, correctAnswer) {
+    if (userAnswer === correctAnswer) {
+        score += 10;
+    } else {
+        timeLeft -= 10;
+    }
+
+    currentQuestionIndex++;
+    nextQuestion();
+}
+function updateTimer() {
+    timerElement.textContent = timeLeft;
+    if (timeLeft <= 0) {
+        endQuiz();
+    } else {
+        timeLeft--;
     }
 }
 
-var timeEl = document.querySelector(".time")
-var mainEl = document.getElementById('main')
-var secondsLeft = 60;
-
-function setTime() {
-    var timerinterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft + "";
-
-        if(seconds)
-
-    }
-
+function endQuiz() {
+    clearInterval(timerInterval);
+    quizContainer.style.display = "none";
+    gameOverContainer.style.display ="block";
+    scoreElement.textContent = score;
 }
 
+function saveScore() {
+    const initials = initialsInput.value;
+    console.log('Saved score: ${score} with initials: ${initials}');
 
-
-
-
-/*
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+}
+}
