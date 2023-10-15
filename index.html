@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Timed coding quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <div id="start-container">
         <h1>Coding Quiz Challenge</h1>
-            <p>Answer the following code-related questions within the time limit. Be aware!!! incorrect answers will penalize your scoretime by ten seconds </p>
+            <p>Answer the following code-related questions within the time limit. Keep in mind, incorrect answers will penalize your scoretime by ten seconds </p>
 
             <button id="start-button" class="btn">Start Quiz</button>
         </div>
@@ -24,14 +24,15 @@
              </div>
         </div>
         <div id="game-over-container">
-            <h2>Game Over</h2>
+            <h3>Game Over</h3>
             <p>Your score: <span id="score">0</span></p>
             <label for="initials"> Enter your initials:</label>
-            <button id="save-score">Save Score</button>
+            <input type="text" id="initials">
+            <button id="save-score" class="btn">Save Score</button>
         </div>
         <div id="highscores-container">
             <div id="highscores">
-                <button id="highscores-button">View Highscores</button>
+                <button id="highscores-button" class="btn">View Highscores</button>
             </div>
         
      <script src="./assets/script.js"></script>

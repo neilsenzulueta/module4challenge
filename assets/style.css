@@ -84,7 +84,9 @@ button {
 button:hover {
     background-color: darkcyan ;
 }
-
+@media screen and (max-width:992px) {
+    
+}
 
 
 

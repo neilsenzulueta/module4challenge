@@ -29,6 +29,7 @@ var currentQuestionIndex = 0;
 var timeLeft = 60;
 var score = 0;
 var timerInterval;
+var highscores =[]
 
 var startButton = document.getElementById("start-button");
 var quizContainer = document.getElementById("quiz-container");
@@ -39,13 +40,13 @@ var gameOverContainer = document.getElementById("game-over-container");
 var scoreElement = document.getElementById("score");
 var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
-
+var highscoresButton = document.getElementById("highscores-button");
 //var startBtn = document.querySelector("start")
-//var highscoreBtn =document.querySelector("highscores")
+//var highscoresButton =document.querySelector("highscores")
 
 startButton.addEventListener("click", startQuiz)
 saveScoreButton.addEventListener("click", saveScore)
-//highscoreBtn.addEventListener("Click", highscores)
+highscoresButton.addEventListener("click", viewhighscores)
 
 function startQuiz() {
     document.getElementById("start-container").style.display = "none";
@@ -95,10 +96,23 @@ function endQuiz() {
     gameOverContainer.style.display ="block";
     scoreElement.textContent = score;
 }
-
 function saveScore() {
     const initials = initialsInput.value;
-    console.log('Saved score: ${score} with initials: ${initials}');
-
+    console.log(`Saved score: ${score} with initials: ${initials}`);
+    highscores.push({ initials: initials, score: score});
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+}
+function viewhighscores() {
+    quizContainer.style.display = "none";
+    gameOverContainer.style.display = "none";
+    highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+    var highScoresList = document.createElement("ul");
+    highScoresList.setAttribute("id", "highscores-list");
+    highscores.forEach((entry, index) => {
+        var listItem = document.createElement("li");
+        listItem.textContent = `${entry.initials}: ${entry.score}`;
+        highScoresList.appendChild(listItem);
+    });
+    document.getElementById("highscores-container").appendChild(highScoresList);
 }
 }
