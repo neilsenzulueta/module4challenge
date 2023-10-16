@@ -3,7 +3,6 @@ body {
     margin-top: 200px;
     background-color: rgb(194, 198, 195);
 }
-
 #start-container {
     display: flexbox;
     width: 50%;
@@ -17,8 +16,7 @@ body {
 #quiz-container {
     display: none;
 }
-  
-#question-container {
+  #question-container {
     display: flexbox;
     width: 50%;
     font-size: 25px;
@@ -29,7 +27,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 20px black(0, 0,0, 0.2);
 }
-
 #choices {
     text-align: center;
     font-size: 20px;
@@ -37,13 +34,11 @@ body {
     text-decoration-color: darkcyan;
     padding: 0;
 }
-  
 #choices li {
     margin: 20px 0;
     border: none;
     cursor: pointer;
 }
-  
 #game-over-container {
     display: none;
     width: 50%;
@@ -57,7 +52,6 @@ body {
     text-align: center;
     padding: 20px;
 }
-  
 button {
     padding: 20px 40px;
     font-size: 20px;
@@ -72,7 +66,6 @@ button {
     position: absolute;
     top: 10px;
     left: 5px;
-    
 }
 #timer-container {
     display: flex;
@@ -84,9 +77,15 @@ button {
 button:hover {
     background-color: darkcyan ;
 }
-@media screen and (max-width:992px) {
-    
+#highscores-modal{
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 5px;
+    font-size: 20px;
+    cursor: pointer;
 }
+@media screen and (max-width:992px) {}
 
 
 

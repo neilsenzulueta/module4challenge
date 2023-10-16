@@ -17,7 +17,7 @@ var questions = [
     {
         question: "String values must be enclosed within ____ when being assigned to variables.",
         choices: ["commas", "curly brackets", "quotes", "parentheses"],
-        correctAnswer: "commas",
+        correctAnswer: "quotes",
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -25,11 +25,12 @@ var questions = [
         correctAnswer: "console log",
     }
 ];
+
 var currentQuestionIndex = 0;
 var timeLeft = 60;
 var score = 0;
 var timerInterval;
-var highscores =[]
+var highscores = [];
 
 var startButton = document.getElementById("start-button");
 var quizContainer = document.getElementById("quiz-container");
@@ -41,24 +42,23 @@ var scoreElement = document.getElementById("score");
 var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
 var highscoresButton = document.getElementById("highscores-button");
-//var startBtn = document.querySelector("start")
-//var highscoresButton =document.querySelector("highscores")
 
-startButton.addEventListener("click", startQuiz)
-saveScoreButton.addEventListener("click", saveScore)
-highscoresButton.addEventListener("click", viewhighscores)
+startButton.addEventListener("click", startQuiz);
+saveScoreButton.addEventListener("click", saveScore);
+highscoresButton.addEventListener("click", viewHighscores);
 
 function startQuiz() {
     document.getElementById("start-container").style.display = "none";
     quizContainer.style.display = "block";
     nextQuestion();
     timerInterval = setInterval(updateTimer, 1000);
+}
 
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
         const currentQuestion = questions[currentQuestionIndex];
         questionElement.textContent = currentQuestion.question;
-        choicesElement.innerHTML ="";
+        choicesElement.innerHTML = "";
 
         currentQuestion.choices.forEach((choice) => {
             var choiceItem = document.createElement("li");
@@ -66,9 +66,9 @@ function nextQuestion() {
             choiceItem.addEventListener("click", () => checkAnswer(choice, currentQuestion.correctAnswer));
             choicesElement.appendChild(choiceItem);
         });
-}   else {
-    endQuiz();
-}
+    } else {
+        endQuiz();
+    }
 }
 
 function checkAnswer(userAnswer, correctAnswer) {
@@ -81,6 +81,7 @@ function checkAnswer(userAnswer, correctAnswer) {
     currentQuestionIndex++;
     nextQuestion();
 }
+
 function updateTimer() {
     timerElement.textContent = timeLeft;
     if (timeLeft <= 0) {
@@ -93,26 +94,40 @@ function updateTimer() {
 function endQuiz() {
     clearInterval(timerInterval);
     quizContainer.style.display = "none";
-    gameOverContainer.style.display ="block";
+    gameOverContainer.style.display = "block";
     scoreElement.textContent = score;
 }
+
 function saveScore() {
-    const initials = initialsInput.value;
-    console.log(`Saved score: ${score} with initials: ${initials}`);
-    highscores.push({ initials: initials, score: score});
+    var initials = initialsInput.value;
+    highscores.push({ initials: initials, score: score });
     localStorage.setItem("highscores", JSON.stringify(highscores));
+    initialsInput.value = ""; 
 }
-function viewhighscores() {
+
+function openModal() {
+    var modal = document.getElementById("highscores-modal");
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    var modal = document.getElementById("highscores-modal");
+    modal.style.display = "none";
+}
+
+function viewHighscores() {
     quizContainer.style.display = "none";
     gameOverContainer.style.display = "none";
     highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-    var highScoresList = document.createElement("ul");
-    highScoresList.setAttribute("id", "highscores-list");
+    var highScoresList = document.getElementById("highscores-list");
+
+    highScoresList.innerHTML = "";
+
     highscores.forEach((entry, index) => {
-        var listItem = document.createElement("li");
+        var listItem = document.createElement("div");
         listItem.textContent = `${entry.initials}: ${entry.score}`;
         highScoresList.appendChild(listItem);
     });
-    document.getElementById("highscores-container").appendChild(highScoresList);
-}
+
+    openModal(); 
 }
