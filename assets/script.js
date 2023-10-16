@@ -1,3 +1,4 @@
+// Array of questions with multiple choices and correct answers.
 var questions = [
     {
         question: "Commonly used data types DO NOT Include:",
@@ -25,13 +26,14 @@ var questions = [
         correctAnswer: "console log",
     }
 ];
-
+// Variables of code quiz.
 var currentQuestionIndex = 0;
 var timeLeft = 60;
 var score = 0;
 var timerInterval;
 var highscores = [];
 
+// References to various elements in the HTML.
 var startButton = document.getElementById("start-button");
 var quizContainer = document.getElementById("quiz-container");
 var questionElement = document.getElementById("question");
@@ -43,17 +45,19 @@ var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
 var highscoresButton = document.getElementById("highscores-button");
 
+// Added event listeners for buttons.
 startButton.addEventListener("click", startQuiz);
 saveScoreButton.addEventListener("click", saveScore);
 highscoresButton.addEventListener("click", viewHighscores);
 
+// Function to start the quiz.
 function startQuiz() {
     document.getElementById("start-container").style.display = "none";
     quizContainer.style.display = "block";
     nextQuestion();
     timerInterval = setInterval(updateTimer, 1000);
 }
-
+// Function to display the next question.
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
         const currentQuestion = questions[currentQuestionIndex];
@@ -70,7 +74,7 @@ function nextQuestion() {
         endQuiz();
     }
 }
-
+// Function to check the user's answer and update the score and time.
 function checkAnswer(userAnswer, correctAnswer) {
     if (userAnswer === correctAnswer) {
         score += 10;
@@ -81,7 +85,7 @@ function checkAnswer(userAnswer, correctAnswer) {
     currentQuestionIndex++;
     nextQuestion();
 }
-
+// Function to update the timer and end the quiz if time runs out.
 function updateTimer() {
     timerElement.textContent = timeLeft;
     if (timeLeft <= 0) {
@@ -90,31 +94,31 @@ function updateTimer() {
         timeLeft--;
     }
 }
-
+// Function to end the quiz, display score and stop the timer.
 function endQuiz() {
     clearInterval(timerInterval);
     quizContainer.style.display = "none";
     gameOverContainer.style.display = "block";
     scoreElement.textContent = score;
 }
-
+// Function to save the user's score and initials in local storage.
 function saveScore() {
     var initials = initialsInput.value;
     highscores.push({ initials: initials, score: score });
     localStorage.setItem("highscores", JSON.stringify(highscores));
     initialsInput.value = ""; 
 }
-
+// Function to open highscores modal.
 function openModal() {
     var modal = document.getElementById("highscores-modal");
     modal.style.display = "block";
 }
-
+// Function to close highscores modal.
 function closeModal() {
     var modal = document.getElementById("highscores-modal");
     modal.style.display = "none";
 }
-
+// Function to view highscores, access date from local storage and display in modal.
 function viewHighscores() {
     quizContainer.style.display = "none";
     gameOverContainer.style.display = "none";
@@ -128,6 +132,6 @@ function viewHighscores() {
         listItem.textContent = `${entry.initials}: ${entry.score}`;
         highScoresList.appendChild(listItem);
     });
-
+    
     openModal(); 
 }
