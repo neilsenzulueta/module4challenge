@@ -60,7 +60,7 @@ function startQuiz() {
 // Function to display the next question.
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
-        const currentQuestion = questions[currentQuestionIndex];
+        var currentQuestion = questions[currentQuestionIndex];
         questionElement.textContent = currentQuestion.question;
         choicesElement.innerHTML = "";
 
