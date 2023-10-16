@@ -8,37 +8,45 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <div id="start-container">
+    <header id="start-container">
         <h1>Coding Quiz Challenge</h1>
             <p>Answer the following code-related questions within the time limit. Keep in mind, incorrect answers will penalize your scoretime by ten seconds </p>
 
             <button id="start-button" class="btn">Start Quiz</button>
-        </div>
-        <div id="quiz-container">
-            <div id="question-container">
+    </header>
+
+    <main>
+        <section id="quiz-container">
+            <section id="question-container">
                 <p id="question"></p>
-            </div>
+            </section>
                 <ul id="choices"></ul>
-            <div id="timer-container">
+            <section id="timer-container">
                     Time: <span id="timer">60 </span> seconds
-             </div>
-        </div>
-        <div id="game-over-container">
-            <h3>Game Over</h3>
+            </section>
+        </section>
+
+        <section id="game-over-container">
+            <h3>Game Over!!!</h3>
             <p>Your score: <span id="score">0</span></p>
             <label for="initials"> Enter your initials:</label>
             <input type="text" id="initials">
             <button id="save-score" class="btn">Save Score</button>
-        </div>
-        <div id="highscores-container">
-            <div id="highscores">
+        </section>
+
+        <section id="highscores-container">
+            <section id="highscores">
                 <button id="highscores-button" class="btn">View Highscores</button>
-            </div>
-        <div id="highscores-modal" class="modal">
+        </section>
+    </main>
+
+    <div id="highscores-modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <div id="highscores-list"></div>
             </div>
-     <script src="./assets/script.js"></script>
+    </div>
+
+    <script src="./assets/script.js"></script>
 </body>
 </html>
