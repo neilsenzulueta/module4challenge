@@ -13,7 +13,10 @@ My motivation for this project was to build a timed coding quiz with multiple ch
 
 This webpage begins with a introduction to the timed coding quiz. User needs to click the button "start quiz", the quiz will start as the page will display a multiple choice question. Once the user picks an answer, the user will be presented with another question.  If a question is answered incorrectly, 10 seconds will be subtracted from the timer located on the top right corner of the page.  The quiz is over once all questions have been answered or when the timer reaches 0. User is able to save their initials when "save score" button is clicked.  User can view previous user scores by clicking "View highscore" button located on the top left corner of web page.  
 
-<assets/Screen Recording 2023-10-16 at 1.27.58 PM.mov>
+![Alt text](<assets/Screenshot 2023-10-16 at 2.31.11 PM.png>)
+![Alt text](<assets/Screenshot 2023-10-16 at 2.31.27 PM.png>)
+![Alt text](<assets/Screenshot 2023-10-16 at 2.31.52 PM.png>)
+![Alt text](<assets/Screenshot 2023-10-16 at 2.32.34 PM.png>)
 
 https://neilsenzulueta.github.io/module4challenge/
 
